@@ -1,35 +1,37 @@
-package me.ghosrec35.mpc;
+package me.ghosrec35.mpc.command;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public class CommandDamage extends CommandBase
+public class CommandHeal extends CommandBase
 {
     @Override
     public String getCommandName()
     {
-        return "damage";
+        return "heal";
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "damage.commands.usage";
+        return "heal.commands.usage";
     }
 
     @Override
     public void processCommand(ICommandSender sender, String[] params)
     {
-        if(canCommandSenderUseCommand(sender) && params.length > 0)
+        if(canCommandSenderUseCommand(sender))
         {
             EntityPlayer player = (EntityPlayer)getCommandSenderAsPlayer(sender);
-            ItemStack stack = player.getCurrentEquippedItem();
-            if(stack != null)
+            if(params.length == 1)
             {
-                int damage = Integer.parseInt(params[0]);
-                stack.setItemDamage(damage);
+                player.setHealth(Float.parseFloat(params[0]));
+            }
+            else
+            {
+                player.setHealth(player.getMaxHealth());
             }
         }
     }

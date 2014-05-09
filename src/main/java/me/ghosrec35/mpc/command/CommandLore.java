@@ -1,4 +1,4 @@
-package me.ghosrec35.mpc;
+package me.ghosrec35.mpc.command;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;

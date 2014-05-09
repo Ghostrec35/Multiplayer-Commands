@@ -1,4 +1,4 @@
-package me.ghosrec35.mpc;
+package me.ghosrec35.mpc.nbt;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

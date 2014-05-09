@@ -1,7 +1,8 @@
-package me.ghosrec35.mpc;
+package me.ghosrec35.mpc.command;
 
 import java.util.List;
 
+import me.ghosrec35.mpc.MultiplayerCommands;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;

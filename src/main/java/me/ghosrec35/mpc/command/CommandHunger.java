@@ -1,22 +1,21 @@
-package me.ghosrec35.mpc;
+package me.ghosrec35.mpc.command;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
-public class CommandRepair extends CommandBase
+public class CommandHunger extends CommandBase
 {
     @Override
     public String getCommandName()
     {
-        return "repair";
+        return "hunger";
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "repair.commands.usage";
+        return "hunger.commands.usage";
     }
 
     @Override
@@ -25,9 +24,14 @@ public class CommandRepair extends CommandBase
         if(canCommandSenderUseCommand(sender))
         {
             EntityPlayer player = (EntityPlayer)getCommandSenderAsPlayer(sender);
-            ItemStack stack = player.getCurrentEquippedItem();
-            if(stack != null)
-                stack.setItemDamage(0);
+            if(params.length == 1)
+            {
+                player.getFoodStats().setFoodLevel(Integer.parseInt(params[0]));
+            }
+            else
+            {
+                player.getFoodStats().setFoodLevel(20);
+            }
         }
     }
 }

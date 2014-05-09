@@ -1,5 +1,6 @@
-package me.ghosrec35.mpc;
+package me.ghosrec35.mpc.event;
 
+import me.ghosrec35.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
