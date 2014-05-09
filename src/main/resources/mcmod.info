@@ -1,0 +1,16 @@
+[
+{
+  "modid": "MultiplayerCommands",
+  "name": "Multiplayer Commands",
+  "description": "A possible replacement for defunct SPC",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Ghosrec35"],
+  "credits": "Darkhax for the idea. (So Far)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
