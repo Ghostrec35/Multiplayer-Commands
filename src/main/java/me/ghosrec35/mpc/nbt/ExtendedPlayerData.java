@@ -14,6 +14,8 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     private double playerHomeY;
     private double playerHomeZ;
     
+    private boolean isGod;
+    
     private EntityPlayer player;
     
     public ExtendedPlayerData(EntityPlayer entityPlayer)
@@ -32,6 +34,7 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         tag.setDouble("PlayerHomeY", playerHomeY);
         tag.setDouble("PlayerHomeZ", playerHomeZ);
         compound.setTag(EXTENDED_PROPS_IDENT, tag);
+        tag.setBoolean("MPCGodMode", isGod);
     }
 
     @Override
@@ -41,6 +44,13 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         playerHomeX = props.getDouble("PlayerHomeX");
         playerHomeY = props.getDouble("PlayerHomeY");
         playerHomeZ = props.getDouble("PlayerHomeZ");
+        
+        isGod = compound.getBoolean("MPCGodMode");
+        
+        if(isGod && player.getHealth() != player.getMaxHealth())
+        {
+            player.setHealth(player.getMaxHealth());
+        }
     }
     
     @Override
@@ -61,5 +71,10 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     public double getHomeZCoordinate()
     {
         return playerHomeZ;
+    }
+
+    public boolean isGodActivated()
+    {
+        return isGod;
     }
 }

@@ -26,12 +26,13 @@ public class CommandSeeInventory extends CommandBase
     {
         if(canCommandSenderUseCommand(sender))
         {
-            if(params.length == 2)
+            if(params.length == 1)
             {
                 MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
-                EntityPlayer player = server.worldServers[Integer.parseInt(params[0])].getPlayerEntityByName(params[1]);
                 EntityPlayer commPlayer = getCommandSenderAsPlayer(sender);
-                commPlayer.openGui(MultiplayerCommands.instance, 0, commPlayer.worldObj, (int)commPlayer.posX, (int)commPlayer.posY, (int)commPlayer.posZ);
+                EntityPlayer player = server.getConfigurationManager().getPlayerForUsername(params[0]);
+                commPlayer.getEntityData().setString("PlayerViewName", params[0]);
+                commPlayer.openGui(MultiplayerCommands.instance, 0, player.worldObj, (int)commPlayer.posX, (int)commPlayer.posY, (int)commPlayer.posZ);
             }
         }
     }

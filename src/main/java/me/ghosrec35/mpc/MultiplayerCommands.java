@@ -8,6 +8,8 @@ import me.ghosrec35.mpc.command.CommandDamage;
 import me.ghosrec35.mpc.command.CommandDrop;
 import me.ghosrec35.mpc.command.CommandDropAll;
 import me.ghosrec35.mpc.command.CommandEnchant;
+import me.ghosrec35.mpc.command.CommandFly;
+import me.ghosrec35.mpc.command.CommandGod;
 import me.ghosrec35.mpc.command.CommandHeal;
 import me.ghosrec35.mpc.command.CommandHome;
 import me.ghosrec35.mpc.command.CommandHunger;
@@ -15,8 +17,12 @@ import me.ghosrec35.mpc.command.CommandItemName;
 import me.ghosrec35.mpc.command.CommandKillAll;
 import me.ghosrec35.mpc.command.CommandLift;
 import me.ghosrec35.mpc.command.CommandLore;
+import me.ghosrec35.mpc.command.CommandMaxHealth;
 import me.ghosrec35.mpc.command.CommandRepair;
+import me.ghosrec35.mpc.command.CommandSeeInventory;
 import me.ghosrec35.mpc.command.CommandSetHome;
+import me.ghosrec35.mpc.command.CommandSpawner;
+import me.ghosrec35.mpc.command.CommandSpeed;
 import me.ghosrec35.mpc.event.EventManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.enchantment.Enchantment;
@@ -88,5 +94,11 @@ public class MultiplayerCommands
         manager.registerCommand(new CommandHunger());
         manager.registerCommand(new CommandSetHome());
         manager.registerCommand(new CommandHome());
+        manager.registerCommand(new CommandSeeInventory());
+        manager.registerCommand(new CommandSpawner());
+        manager.registerCommand(new CommandGod());
+        manager.registerCommand(new CommandFly());
+        manager.registerCommand(new CommandMaxHealth());
+        manager.registerCommand(new CommandSpeed());
     }
 }
