@@ -70,7 +70,10 @@ public class CommandItemName extends CommandBase
                     {
                         name.append(str + " ");
                     }
-                    stack.setTagCompound(new NBTTagCompound());
+                    
+                    if(!stack.hasTagCompound())
+                        stack.setTagCompound(new NBTTagCompound());
+                    
                     stack.setStackDisplayName(style.getFormattingCode() + name.toString());
                 }
             }

@@ -1,22 +1,22 @@
 package me.ghosrec35.mpc.command;
 
+import me.ghosrec35.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
-public class CommandHeal extends CommandBase
+public class CommandIceAura extends CommandBase
 {
     @Override
     public String getCommandName()
     {
-        return "heal";
+        return "iceaura";
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "heal.commands.usage";
+        return "iceaura.commands.usage";
     }
 
     @Override
@@ -24,15 +24,9 @@ public class CommandHeal extends CommandBase
     {
         if(canCommandSenderUseCommand(sender))
         {
-            EntityPlayer player = (EntityPlayer)getCommandSenderAsPlayer(sender);
-            if(params.length == 1)
-            {
-                player.setHealth(player.getHealth() + Float.parseFloat(params[0]));
-            }
-            else
-            {
-                player.setHealth(player.getMaxHealth());
-            }
+            EntityPlayer player = getCommandSenderAsPlayer(sender);
+            ExtendedPlayerData data = (ExtendedPlayerData)player.getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
+            //data.setIceAuraActivated(!data.isIceAuraActivated());
         }
     }
 }

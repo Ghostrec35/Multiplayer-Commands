@@ -2,20 +2,29 @@ package me.ghosrec35.mpc.event;
 
 import me.ghosrec35.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EventManager
 {   
     @SubscribeEvent
-    public void onEntityHurt(LivingHurtEvent event)
+    public void onEntityHurt(LivingDeathEvent event)
     {
-        if(event.entityLiving instanceof EntityPlayer)
+        if(event.entity instanceof EntityPlayer)
         {
-            ExtendedPlayerData data = (ExtendedPlayerData)((EntityPlayer)event.entityLiving).getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
-            if(data.isGodActivated())
-                event.setCanceled(true);
+            EntityPlayer player = (EntityPlayer)event.entity;
+            ExtendedPlayerData data = (ExtendedPlayerData) player.getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
+            
+            NBTTagCompound tag = new NBTTagCompound();
+            data.saveNBTData(tag);
+            NBTTagCompound compound = (NBTTagCompound) tag.getTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
+            compound.setDouble("LastDeathPosX", player.posX);
+            compound.setDouble("LastDeathPosY", player.posY);
+            compound.setDouble("LastDeathPosZ", player.posZ);
+            tag.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, compound);
+            data.loadNBTData(tag);
         }
     }
     

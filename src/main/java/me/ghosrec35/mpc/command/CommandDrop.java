@@ -1,6 +1,9 @@
 package me.ghosrec35.mpc.command;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockLiquid;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,9 +33,9 @@ public class CommandDrop extends CommandBase
             World world = (World)player.worldObj;
             for(int y = ((int)player.posY) - 2; y > 0; y--)
             {
-                if(isAir(world.getBlock((int)player.posX, y, (int)player.posZ)) && isAir(world.getBlock((int)player.posX, y + 1, (int)player.posZ)) && isAir(world.getBlock((int)player.posX, y, (int)player.posZ)) && isAir(world.getBlock((int)player.posX, y + 3, (int)player.posZ)) && isAir(world.getBlock((int)player.posX, y + 4, (int)player.posZ)) && world.getBlock((int)player.posX, y - 1, (int)player.posZ) != Blocks.air)
+                if(isAir(world.getBlock((int)player.posX, y, (int)player.posZ)) && isAir(world.getBlock((int)player.posX, y + 1, (int)player.posZ)) && isViablePlatform(world.getBlock((int)player.posX, y - 1, (int)player.posZ)))
                 {
-                    player.setPositionAndUpdate(player.posX, (double)y + 4, player.posZ);
+                    player.setPositionAndUpdate(player.posX, (double)y, player.posZ);
                     return;
                 }
             }
@@ -42,5 +45,10 @@ public class CommandDrop extends CommandBase
     public boolean isAir(Block b)
     {
         return b == Blocks.air;
+    }
+    
+    public boolean isViablePlatform(Block b)
+    {
+        return !((b instanceof BlockLiquid) || (b instanceof BlockBush) || (b instanceof BlockTallGrass));
     }
 }

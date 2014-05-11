@@ -56,6 +56,9 @@ public class CommandEnchant extends CommandBase
             else
             if(params[0].equalsIgnoreCase("r") || params[0].equalsIgnoreCase("remove"))
             {
+                if(!stack.hasTagCompound())
+                    stack.setTagCompound(new NBTTagCompound());
+                
                 Enchantment enchant = Enchantment.enchantmentsList[Integer.parseInt(params[1])];
                 int level = Integer.parseInt(params[2]); 
                 NBTTagCompound nbtTag = (NBTTagCompound) stack.stackTagCompound.copy();

@@ -14,7 +14,13 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     private double playerHomeY;
     private double playerHomeZ;
     
+    private double lastDeathPosX;
+    private double lastDeathPosY;
+    private double lastDeathPosZ;
+    
     private boolean isGod;
+    
+    private boolean iceAura;
     
     private EntityPlayer player;
     
@@ -33,8 +39,11 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         tag.setDouble("PlayerHomeX", playerHomeX);
         tag.setDouble("PlayerHomeY", playerHomeY);
         tag.setDouble("PlayerHomeZ", playerHomeZ);
+        
+        tag.setDouble("LastDeathPosX", lastDeathPosX);
+        tag.setDouble("LastDeathPosY", lastDeathPosY);
+        tag.setDouble("LastDeathPosZ", lastDeathPosZ);
         compound.setTag(EXTENDED_PROPS_IDENT, tag);
-        tag.setBoolean("MPCGodMode", isGod);
     }
 
     @Override
@@ -45,12 +54,9 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         playerHomeY = props.getDouble("PlayerHomeY");
         playerHomeZ = props.getDouble("PlayerHomeZ");
         
-        isGod = compound.getBoolean("MPCGodMode");
-        
-        if(isGod && player.getHealth() != player.getMaxHealth())
-        {
-            player.setHealth(player.getMaxHealth());
-        }
+        lastDeathPosX = props.getDouble("LastDeathPosX");
+        lastDeathPosY = props.getDouble("LastDeathPosY");
+        lastDeathPosZ = props.getDouble("LastDeathPosZ");
     }
     
     @Override
@@ -73,8 +79,8 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         return playerHomeZ;
     }
 
-    public boolean isGodActivated()
+    public boolean isIceAuraActivated()
     {
-        return isGod;
+        return iceAura;
     }
 }
