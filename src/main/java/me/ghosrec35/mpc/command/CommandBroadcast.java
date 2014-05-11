@@ -21,7 +21,7 @@ public class CommandBroadcast extends CommandBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return null;
+        return "broadcast.commands.usage";
     }
 
     @Override
