@@ -5,7 +5,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public class CommandDamage extends CommandBase
+public class CommandDamage extends CommandMPCBase
 {
     @Override
     public String getCommandName()

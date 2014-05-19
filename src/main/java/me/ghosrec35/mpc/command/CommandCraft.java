@@ -1,33 +1,30 @@
 package me.ghosrec35.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public class CommandRepair extends CommandMPCBase
+public class CommandCraft extends CommandMPCBase
 {
     @Override
     public String getCommandName()
     {
-        return "repair";
+        return "craft";
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "repair.commands.usage";
+        return "craft.commands.usage";
     }
 
     @Override
     public void processCommand(ICommandSender sender, String[] params)
     {
-        if(canCommandSenderUseCommand(sender))
+        if(canCommandSenderUseCommand(sender) && params.length > 0)
         {
             EntityPlayer player = (EntityPlayer)getCommandSenderAsPlayer(sender);
-            ItemStack stack = player.getCurrentEquippedItem();
-            if(stack != null)
-                stack.setItemDamage(0);
+            
         }
     }
 }

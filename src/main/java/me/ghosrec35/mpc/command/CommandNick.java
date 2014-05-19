@@ -2,22 +2,23 @@ package me.ghosrec35.mpc.command;
 
 import net.minecraft.command.ICommandSender;
 
-public class CommandWarp extends CommandMPCBase
+public class CommandNick extends CommandMPCBase
 {
     @Override
     public String getCommandName()
     {
-        return "tp";
+        return "nick";
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "tp.commands.usage";
+        return "nick.commands.usage";
     }
 
     @Override
     public void processCommand(ICommandSender var1, String[] var2)
-    {        
+    {
+        
     }
 }

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-public class CommandEnchant extends CommandBase
+public class CommandEnchant extends CommandMPCBase
 {   
     @Override
     public String getCommandName()
@@ -58,17 +58,22 @@ public class CommandEnchant extends CommandBase
             {
                 if(!stack.hasTagCompound())
                     stack.setTagCompound(new NBTTagCompound());
-                
-                Enchantment enchant = Enchantment.enchantmentsList[Integer.parseInt(params[1])];
-                int level = Integer.parseInt(params[2]); 
+                int id = Integer.parseInt(params[1]);
                 NBTTagCompound nbtTag = (NBTTagCompound) stack.stackTagCompound.copy();
-                
-                NBTTagList ench = stack.stackTagCompound.getTagList("ench", 10);
-                for(int i = 0; i < ench.tagCount(); i++)
+                if(nbtTag.hasKey("ench", 10))
                 {
-                    ench.getCompoundTagAt(i);
+                    NBTTagList ench = stack.stackTagCompound.getTagList("ench", 10);
+                    for(int i = 0; i < ench.tagCount(); i++)
+                    {
+                        NBTTagCompound tag = ench.getCompoundTagAt(i);
+                        if(tag.getShort("id") == id)
+                        {
+                            ench.getCompoundTagAt(i).removeTag("id");
+                            ench.getCompoundTagAt(i).removeTag("lvl");
+                        }
+                    }
+                    stack.setTagCompound(nbtTag);
                 }
-                stack.setTagCompound(nbtTag);
             }
         }
     }

@@ -5,7 +5,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class CommandIceAura extends CommandBase
+public class CommandIceAura extends CommandMPCBase
 {
     @Override
     public String getCommandName()

@@ -4,7 +4,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class CommandGod extends CommandBase
+public class CommandGod extends CommandMPCBase
 {
     @Override
     public String getCommandName()

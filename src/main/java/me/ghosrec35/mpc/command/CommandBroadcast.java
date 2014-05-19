@@ -10,7 +10,7 @@ import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import cpw.mods.fml.common.FMLCommonHandler;
 
-public class CommandBroadcast extends CommandBase
+public class CommandBroadcast extends CommandMPCBase
 {
     @Override
     public String getCommandName()

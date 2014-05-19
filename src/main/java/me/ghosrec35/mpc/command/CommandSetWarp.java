@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import cpw.mods.fml.common.FMLCommonHandler;
 
-public class CommandSetWarp extends CommandBase
+public class CommandSetWarp extends CommandMPCBase
 {
     public NBTBasedSaveFile saveFile = new NBTBasedSaveFile(new File(FMLCommonHandler.instance().getMinecraftServerInstance().getWorldName(), "warp_data.dat"));
     

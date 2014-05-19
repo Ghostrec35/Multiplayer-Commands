@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import cpw.mods.fml.common.FMLLog;
 
-public class CommandDropAll extends CommandBase
+public class CommandDropAll extends CommandMPCBase
 {
     private Random random = new Random();
     

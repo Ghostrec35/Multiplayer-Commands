@@ -5,7 +5,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class CommandMaxHealth extends CommandBase
+public class CommandMaxHealth extends CommandMPCBase
 {
     @Override
     public String getCommandName()

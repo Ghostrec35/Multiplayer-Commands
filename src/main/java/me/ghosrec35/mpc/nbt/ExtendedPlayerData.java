@@ -18,7 +18,13 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     private double lastDeathPosY;
     private double lastDeathPosZ;
     
-    private boolean isGod;
+    private double lastPosX;
+    private double lastPosY;
+    private double lastPosZ;
+    
+    private boolean instaKillActive;
+    
+    private boolean instaMineActive;
     
     private boolean iceAura;
     
@@ -43,6 +49,13 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         tag.setDouble("LastDeathPosX", lastDeathPosX);
         tag.setDouble("LastDeathPosY", lastDeathPosY);
         tag.setDouble("LastDeathPosZ", lastDeathPosZ);
+        
+        tag.setDouble("LastPositionX", lastPosX);
+        tag.setDouble("LastPositionY", lastPosY);
+        tag.setDouble("LastPositionZ", lastPosZ);
+        
+        tag.setBoolean("InstaKill", instaKillActive);
+        tag.setBoolean("InstaMine", instaMineActive);
         compound.setTag(EXTENDED_PROPS_IDENT, tag);
     }
 
@@ -57,6 +70,14 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         lastDeathPosX = props.getDouble("LastDeathPosX");
         lastDeathPosY = props.getDouble("LastDeathPosY");
         lastDeathPosZ = props.getDouble("LastDeathPosZ");
+        
+        lastPosX = props.getDouble("LastPositionX");
+        lastPosY = props.getDouble("LastPositionY");
+        lastPosZ = props.getDouble("LastPositionZ");
+        
+        instaKillActive = props.getBoolean("InstaKill");
+        instaMineActive = props.getBoolean("InstaMine");
+        System.out.println(instaKillActive);
     }
     
     @Override
@@ -78,9 +99,49 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     {
         return playerHomeZ;
     }
+    
+    public double getDeathXCoordinate()
+    {
+        return lastDeathPosX;
+    }
+    
+    public double getDeathYCoordinate()
+    {
+        return lastDeathPosY;
+    }
+    
+    public double getDeathZCoordinate()
+    {
+        return lastDeathPosZ;
+    }
 
+    public double getBackXCoordinate()
+    {
+        return lastPosX;
+    }
+    
+    public double getBackYCoordinate()
+    {
+        return lastPosY;
+    }
+    
+    public double getBackZCoordinate()
+    {
+        return lastPosZ;
+    }
+    
     public boolean isIceAuraActivated()
     {
         return iceAura;
+    }
+
+    public boolean isInstaKillActive()
+    {
+        return instaKillActive;
+    }
+
+    public boolean isInstaMineActive()
+    {
+        return instaMineActive;
     }
 }

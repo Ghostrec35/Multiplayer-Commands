@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class CommandSpawner extends CommandBase
+public class CommandSpawner extends CommandMPCBase
 {
     @Override
     public String getCommandName()

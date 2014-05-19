@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class CommandDrop extends CommandBase
+public class CommandDrop extends CommandMPCBase
 {
     @Override
     public String getCommandName()

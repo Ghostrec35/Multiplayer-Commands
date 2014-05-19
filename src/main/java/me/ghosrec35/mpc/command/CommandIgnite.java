@@ -4,7 +4,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class CommandIgnite extends CommandBase
+public class CommandIgnite extends CommandMPCBase
 {
     @Override
     public String getCommandName()

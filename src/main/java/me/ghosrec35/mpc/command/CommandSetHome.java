@@ -6,7 +6,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class CommandSetHome extends CommandBase
+public class CommandSetHome extends CommandMPCBase
 {
     @Override
     public String getCommandName()

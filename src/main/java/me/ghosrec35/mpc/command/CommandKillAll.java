@@ -10,7 +10,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class CommandKillAll extends CommandBase
+public class CommandKillAll extends CommandMPCBase
 {
     @Override
     public int getRequiredPermissionLevel()

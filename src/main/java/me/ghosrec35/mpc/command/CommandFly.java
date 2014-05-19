@@ -5,7 +5,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class CommandFly extends CommandBase
+public class CommandFly extends CommandMPCBase
 {
     @Override
     public String getCommandName()

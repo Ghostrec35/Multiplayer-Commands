@@ -1,6 +1,8 @@
 package me.ghosrec35.mpc.command;
 
-import net.minecraft.command.CommandBase;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -8,18 +10,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 
-public class CommandItemName extends CommandBase
+public class CommandItemName extends CommandMPCBase
 {
     @Override
     public String getCommandName()
     {
         return "itemname";
     }
+    
+    @Override
+    public List getCommandAliases()
+    {
+        return genAliasList("rename");
+    }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "setname.commands.usage";
+        return "itemname.commands.usage";
     }
 
     @Override

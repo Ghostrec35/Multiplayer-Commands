@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import cpw.mods.fml.common.FMLCommonHandler;
 
-public class CommandSeeInventory extends CommandBase
+public class CommandSeeInventory extends CommandMPCBase
 {
     @Override
     public String getCommandName()

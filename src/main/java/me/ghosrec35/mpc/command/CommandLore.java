@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 
-public class CommandLore extends CommandBase
+public class CommandLore extends CommandMPCBase
 {
     @Override
     public String getCommandName()
