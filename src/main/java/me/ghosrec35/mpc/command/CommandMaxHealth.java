@@ -16,7 +16,7 @@ public class CommandMaxHealth extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "maxhealth.commands.usage";
+        return "commands.maxhealth.usage";
     }
 
     @Override

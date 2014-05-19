@@ -15,7 +15,7 @@ public class CommandGod extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "god.commands.usage";
+        return "commands.god.usage";
     }
 
     @Override

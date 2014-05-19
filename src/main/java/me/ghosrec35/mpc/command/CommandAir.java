@@ -21,7 +21,7 @@ public class CommandAir extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "air.commands.usage";
+        return "commands.air.usage";
     }
 
     @Override

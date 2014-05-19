@@ -9,18 +9,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.WorldServer;
 
-public class CommandInstaMine extends CommandMPCBase
+public class CommandFallDamage extends CommandMPCBase
 {
     @Override
     public String getCommandName()
     {
-        return "instamine";
+        return "falldamage";
     }
 
     @Override
-    public String getCommandUsage(ICommandSender var1)
+    public String getCommandUsage(ICommandSender sender)
     {
-        return "commands.instamine.usage";
+        return (canCommandSenderUseCommand(sender) ? "commands.falldamage.usage" : "commands.falldamage.lackofperms");
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CommandInstaMine extends CommandMPCBase
                 {
                     NBTTagCompound tag = new NBTTagCompound();
                     ExtendedPlayerData properties = (ExtendedPlayerData)entityPlayer.getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
-                    tag.setBoolean("InstaMine", !properties.isInstaKillActive());
+                    tag.setBoolean("FallDamage", !properties.isInstaKillActive());
                     NBTTagCompound compound = new NBTTagCompound();
                     compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                     properties.loadNBTData(compound);
@@ -59,7 +59,7 @@ public class CommandInstaMine extends CommandMPCBase
                 EntityPlayer player = getCommandSenderAsPlayer(sender);
                 NBTTagCompound tag = new NBTTagCompound();
                 ExtendedPlayerData properties = (ExtendedPlayerData)player.getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
-                tag.setBoolean("InstaMine", !properties.isInstaKillActive());
+                tag.setBoolean("FallDamage", !properties.isInstaKillActive());
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                 properties.loadNBTData(compound);

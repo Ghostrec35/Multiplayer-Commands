@@ -16,7 +16,7 @@ public class CommandFly extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "fly.commands.usage";
+        return "commands.fly.usage";
     }
 
     @Override

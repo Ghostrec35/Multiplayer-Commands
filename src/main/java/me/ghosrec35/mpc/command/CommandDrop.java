@@ -21,7 +21,7 @@ public class CommandDrop extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "drop.commands.usage";
+        return "commands.drop.usage";
     }
 
     @Override

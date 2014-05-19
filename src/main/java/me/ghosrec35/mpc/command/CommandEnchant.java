@@ -20,7 +20,7 @@ public class CommandEnchant extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "enchant.commands.usage";
+        return "commands.enchant.usage";
     }
 
     @Override

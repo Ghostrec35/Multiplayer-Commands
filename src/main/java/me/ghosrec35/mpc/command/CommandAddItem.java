@@ -16,7 +16,7 @@ public class CommandAddItem extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "additem.commands.usage";
+        return "commands.additem.usage";
     }
 
     @Override

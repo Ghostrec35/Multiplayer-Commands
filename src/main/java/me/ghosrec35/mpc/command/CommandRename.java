@@ -10,24 +10,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 
-public class CommandItemName extends CommandMPCBase
+public class CommandRename extends CommandMPCBase
 {
     @Override
     public String getCommandName()
     {
-        return "itemname";
+        return "rename";
     }
     
     @Override
     public List getCommandAliases()
     {
-        return genAliasList("rename");
+        return genAliasList("itemname");
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "itemname.commands.usage";
+        return "commands.rename.usage";
     }
 
     @Override

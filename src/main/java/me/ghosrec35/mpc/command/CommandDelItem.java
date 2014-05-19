@@ -16,7 +16,7 @@ public class CommandDelItem extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "delitem.commands.usage";
+        return "commands.delitem.usage";
     }
 
     @Override

@@ -21,7 +21,7 @@ public class CommandBroadcast extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "broadcast.commands.usage";
+        return "commands.broadcast.usage";
     }
 
     @Override

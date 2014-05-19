@@ -21,7 +21,7 @@ public class CommandLift extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "lift.commands.usage";
+        return "commands.lift.usage";
     }
 
     @Override

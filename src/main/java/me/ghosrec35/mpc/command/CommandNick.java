@@ -13,7 +13,7 @@ public class CommandNick extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "nick.commands.usage";
+        return "commands.nick.usage";
     }
 
     @Override

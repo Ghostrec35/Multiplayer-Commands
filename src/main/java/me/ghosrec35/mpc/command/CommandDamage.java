@@ -16,7 +16,7 @@ public class CommandDamage extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "damage.commands.usage";
+        return "commands.damage.usage";
     }
 
     @Override

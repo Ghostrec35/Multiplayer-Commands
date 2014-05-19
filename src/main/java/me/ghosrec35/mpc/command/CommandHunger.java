@@ -15,7 +15,7 @@ public class CommandHunger extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "hunger.commands.usage";
+        return "commands.hunger.usage";
     }
 
     @Override

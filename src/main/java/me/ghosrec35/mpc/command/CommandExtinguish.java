@@ -1,21 +1,20 @@
 package me.ghosrec35.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class CommandExplode extends CommandMPCBase
+public class CommandExtinguish extends CommandMPCBase
 {
     @Override
     public String getCommandName()
     {
-        return "explode";
+        return "extinguish";
     }
 
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "commands.explode.usage";
+        return "commands.extinguish.usage";
     }
 
     @Override
@@ -23,11 +22,14 @@ public class CommandExplode extends CommandMPCBase
     {
         if(canCommandSenderUseCommand(sender))
         {
-            EntityPlayer commandUser = getCommandSenderAsPlayer(sender);
-            if(params.length == 1)
+            if(params.length > 0)
             {
-                EntityPlayer target = commandUser.worldObj.getPlayerEntityByName(params[0]);
-                target.worldObj.createExplosion(target, target.posX, target.posY, target.posZ, 4.0f, true);
+                EntityPlayer player = getCommandSenderAsPlayer(sender).worldObj.getPlayerEntityByName(params[0]);
+                player.extinguish();
+            }
+            else
+            {
+                getCommandSenderAsPlayer(sender).extinguish();
             }
         }
     }

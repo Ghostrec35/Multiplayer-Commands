@@ -20,7 +20,7 @@ public class CommandInstaKill extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "instakill.commands.usage";
+        return "commands.instakill.usage";
     }
 
     @Override

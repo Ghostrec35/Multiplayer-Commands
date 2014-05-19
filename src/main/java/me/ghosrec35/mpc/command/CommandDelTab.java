@@ -17,7 +17,7 @@ public class CommandDelTab extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "deltab.commands.usage";
+        return "commands.deltab.usage";
     }
 
     @Override

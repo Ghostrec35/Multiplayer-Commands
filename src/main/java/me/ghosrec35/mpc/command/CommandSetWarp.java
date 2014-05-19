@@ -24,7 +24,7 @@ public class CommandSetWarp extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "setwarp.commands.usage";
+        return "commands.setwarp.usage";
     }
 
     @Override

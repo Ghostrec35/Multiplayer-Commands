@@ -18,7 +18,7 @@ public class CommandSeeInventory extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "seeinv.commands.usage";
+        return "commands.seeinv.usage";
     }
 
     @Override

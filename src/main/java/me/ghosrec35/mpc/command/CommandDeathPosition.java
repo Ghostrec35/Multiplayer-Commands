@@ -15,7 +15,7 @@ public class CommandDeathPosition extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "deathpos.commands.usage";
+        return "commands.deathpos.usage";
     }
 
     @Override

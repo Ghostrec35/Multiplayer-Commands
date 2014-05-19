@@ -17,7 +17,7 @@ public class CommandSetHome extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "sethome.commands.usage";
+        return "commands.sethome.usage";
     }
 
     @Override

@@ -16,7 +16,7 @@ public class CommandSmelt extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "smelt.commands.usage";
+        return "commands.smelt.usage";
     }
 
     @Override

@@ -14,7 +14,7 @@ public class CommandFilledChest extends CommandBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "filledchest.commands.usage";
+        return "commands.filledchest.usage";
     }
 
     @Override

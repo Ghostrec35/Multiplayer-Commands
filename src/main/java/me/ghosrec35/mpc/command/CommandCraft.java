@@ -15,7 +15,7 @@ public class CommandCraft extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "craft.commands.usage";
+        return "commands.craft.usage";
     }
 
     @Override

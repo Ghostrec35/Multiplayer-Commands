@@ -26,6 +26,8 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     
     private boolean instaMineActive;
     
+    private boolean fallDamageInactive;
+    
     private boolean iceAura;
     
     private EntityPlayer player;
@@ -56,6 +58,7 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         
         tag.setBoolean("InstaKill", instaKillActive);
         tag.setBoolean("InstaMine", instaMineActive);
+        tag.setBoolean("FallDamage", fallDamageInactive);
         compound.setTag(EXTENDED_PROPS_IDENT, tag);
     }
 
@@ -77,7 +80,7 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
         
         instaKillActive = props.getBoolean("InstaKill");
         instaMineActive = props.getBoolean("InstaMine");
-        System.out.println(instaKillActive);
+        fallDamageInactive = props.getBoolean("FallDamage");
     }
     
     @Override
@@ -143,5 +146,10 @@ public class ExtendedPlayerData implements IExtendedEntityProperties
     public boolean isInstaMineActive()
     {
         return instaMineActive;
+    }
+    
+    public boolean isFallDamageInactive()
+    {
+        return fallDamageInactive;
     }
 }

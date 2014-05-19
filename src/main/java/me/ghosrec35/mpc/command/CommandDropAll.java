@@ -30,7 +30,7 @@ public class CommandDropAll extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "dropall.command.usage";
+        return "commands.dropall.usage";
     }
 
     @Override

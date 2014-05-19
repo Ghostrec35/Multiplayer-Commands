@@ -23,7 +23,7 @@ public class CommandSpeed extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "speed.commands.usage";
+        return "commands.speed.usage";
     }
 
     @Override

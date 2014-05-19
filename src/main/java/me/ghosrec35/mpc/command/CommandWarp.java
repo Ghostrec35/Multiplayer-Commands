@@ -7,13 +7,13 @@ public class CommandWarp extends CommandMPCBase
     @Override
     public String getCommandName()
     {
-        return "tp";
+        return "warp";
     }
 
     @Override
-    public String getCommandUsage(ICommandSender var1)
+    public String getCommandUsage(ICommandSender sender)
     {
-        return "tp.commands.usage";
+        return "commands.warp.usage";
     }
 
     @Override

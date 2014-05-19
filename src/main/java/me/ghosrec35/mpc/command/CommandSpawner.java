@@ -24,7 +24,7 @@ public class CommandSpawner extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "spawner.commands.usage";
+        return "commands.spawner.usage";
     }
 
     @Override

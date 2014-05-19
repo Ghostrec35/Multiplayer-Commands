@@ -16,7 +16,7 @@ public class CommandRepair extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "repair.commands.usage";
+        return "commands.repair.usage";
     }
 
     @Override

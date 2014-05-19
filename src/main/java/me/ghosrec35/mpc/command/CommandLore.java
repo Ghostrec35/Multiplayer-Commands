@@ -21,7 +21,7 @@ public class CommandLore extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "lore.commands.usage";
+        return "commands.lore.usage";
     }
 
     @Override

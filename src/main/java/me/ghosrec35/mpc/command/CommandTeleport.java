@@ -21,7 +21,7 @@ public class CommandTeleport extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "tp.commands.usage";
+        return "commands.tp.mpc.usage";
     }
 
     @Override

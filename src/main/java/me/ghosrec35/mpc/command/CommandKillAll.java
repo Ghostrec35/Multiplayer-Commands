@@ -27,7 +27,7 @@ public class CommandKillAll extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "killall.command.usage";
+        return "command.killall.usage";
     }
 
     @Override

@@ -20,7 +20,7 @@ public class CommandHat extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "hat.commands.usage";
+        return "commands.hat.usage";
     }
 
     @Override

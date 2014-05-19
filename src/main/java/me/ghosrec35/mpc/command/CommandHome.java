@@ -16,7 +16,7 @@ public class CommandHome extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "heal.commands.usage";
+        return "commands.home.usage";
     }
 
     @Override

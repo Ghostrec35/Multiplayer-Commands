@@ -17,7 +17,7 @@ public class CommandGamemode extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "gm.commands.usage";
+        return "commands.gm.usage";
     }
 
     @Override

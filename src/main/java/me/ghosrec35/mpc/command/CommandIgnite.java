@@ -15,7 +15,7 @@ public class CommandIgnite extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "ignite.commands.usage";
+        return "commands.ignite.usage";
     }
 
     @Override

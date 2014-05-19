@@ -16,7 +16,7 @@ public class CommandBack extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "back.commands.usage";
+        return "commands.back.usage";
     }
 
     @Override

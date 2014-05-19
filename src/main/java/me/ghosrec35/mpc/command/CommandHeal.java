@@ -16,7 +16,7 @@ public class CommandHeal extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "heal.commands.usage";
+        return "commands.heal.usage";
     }
 
     @Override

@@ -16,7 +16,7 @@ public class CommandIceAura extends CommandMPCBase
     @Override
     public String getCommandUsage(ICommandSender var1)
     {
-        return "iceaura.commands.usage";
+        return "commands.iceaura.usage";
     }
 
     @Override

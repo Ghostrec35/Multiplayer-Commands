@@ -12,6 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -20,6 +21,19 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class EventManager
 {   
     private Random rand = new Random();
+    
+    @SubscribeEvent
+    public void onPlayerFall(LivingFallEvent event)
+    {
+        if(event.entityLiving instanceof EntityPlayer)
+        {
+            ExtendedPlayerData data = (ExtendedPlayerData)((EntityPlayer)event.entityLiving).getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
+            if(data.isFallDamageInactive())
+            {
+                event.setCanceled(true);
+            }
+        }
+    }
     
     @SubscribeEvent
     public void onPlayerAttemptBlockHarvest(PlayerInteractEvent event)
