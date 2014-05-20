@@ -24,6 +24,7 @@ import me.ghosrec35.mpc.command.CommandHunger;
 import me.ghosrec35.mpc.command.CommandInstaKill;
 import me.ghosrec35.mpc.command.CommandInstaMine;
 import me.ghosrec35.mpc.command.CommandItem;
+import me.ghosrec35.mpc.command.CommandItemAttribute;
 import me.ghosrec35.mpc.command.CommandKillAll;
 import me.ghosrec35.mpc.command.CommandLift;
 import me.ghosrec35.mpc.command.CommandLore;
@@ -162,6 +163,7 @@ public class MultiplayerCommands
         manager.registerCommand(new CommandCraft());
         manager.registerCommand(new CommandHat());
         manager.registerCommand(new CommandInstaMine());
+        manager.registerCommand(new CommandItemAttribute());
         
         for(ICommand command : ((Map<String, ICommand>)manager.getCommands()).values())
         {
