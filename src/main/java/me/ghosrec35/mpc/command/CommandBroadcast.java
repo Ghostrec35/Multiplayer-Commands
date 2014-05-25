@@ -38,8 +38,7 @@ public class CommandBroadcast extends CommandMPCBase
             ChatComponentText text = new ChatComponentText("[Server] " + broadcastMessage.toString());
             ChatStyle style = new ChatStyle();
             style.setColor(EnumChatFormatting.LIGHT_PURPLE);
-            text.setChatStyle(style);
-            
+            text.setChatStyle(style); 
             FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().sendChatMsg(text);
         }
     }

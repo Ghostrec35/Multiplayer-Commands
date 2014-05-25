@@ -6,6 +6,8 @@ public class ConfigurationData
 {
     public static final String CATEGORY_COMMANDS = "commands";
     
+    public static boolean DEBUG;
+    
     public static boolean AIR;
     public static boolean BACK;
     public static boolean BROADCAST;
@@ -42,6 +44,7 @@ public class ConfigurationData
     
     public static void setConfigValues(Configuration config)
     {
+    	DEBUG = config.get(Configuration.CATEGORY_GENERAL, "MPC-Debug-Active", false).getBoolean(false);
         AIR = config.get(CATEGORY_COMMANDS, "Air", true).getBoolean(true);
     }    
 }

@@ -28,6 +28,7 @@ import me.ghosrec35.mpc.command.CommandItemAttribute;
 import me.ghosrec35.mpc.command.CommandKillAll;
 import me.ghosrec35.mpc.command.CommandLift;
 import me.ghosrec35.mpc.command.CommandLore;
+import me.ghosrec35.mpc.command.CommandMPC;
 import me.ghosrec35.mpc.command.CommandMPCBase;
 import me.ghosrec35.mpc.command.CommandMaxHealth;
 import me.ghosrec35.mpc.command.CommandRename;
@@ -164,6 +165,7 @@ public class MultiplayerCommands
         manager.registerCommand(new CommandHat());
         manager.registerCommand(new CommandInstaMine());
         manager.registerCommand(new CommandItemAttribute());
+        manager.registerCommand(new CommandMPC());
         
         for(ICommand command : ((Map<String, ICommand>)manager.getCommands()).values())
         {

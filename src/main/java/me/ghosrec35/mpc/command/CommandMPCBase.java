@@ -12,14 +12,20 @@ public abstract class CommandMPCBase extends CommandBase
     public boolean canCommandSenderUseCommand(ICommandSender sender)
     {
         boolean normalCommandReq = super.canCommandSenderUseCommand(sender);
-        if((normalCommandReq && doesSenderHavePerms(getCommandSenderAsPlayer(sender))))
+        if((normalCommandReq && doesSenderHavePerms(sender)))
         {
             return true;
         }
         return false;
     }
     
-    private boolean doesSenderHavePerms(EntityPlayer player)
+    @Override
+    public String getCommandUsage(ICommandSender sender)
+    {
+        return (canCommandSenderUseCommand(sender) ? "commands." + getCommandName() + ".usage" : "commands." + getCommandName() + ".lackofperms");
+    }
+    
+    private boolean doesSenderHavePerms(ICommandSender sender)
     {
         return true;
     }

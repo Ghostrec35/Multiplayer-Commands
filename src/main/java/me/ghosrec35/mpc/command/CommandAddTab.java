@@ -14,12 +14,6 @@ public class CommandAddTab extends CommandMPCBase
     }
 
     @Override
-    public String getCommandUsage(ICommandSender var1)
-    {
-        return "commands.addtab.usage";
-    }
-
-    @Override
     public void processCommand(ICommandSender sender, String[] params)
     {
         if(canCommandSenderUseCommand(sender) && params.length == 2)
