@@ -42,4 +42,10 @@ public class CommandBroadcast extends CommandMPCBase
             FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().sendChatMsg(text);
         }
     }
+
+	@Override
+	public boolean hasProperParams(String[] params) {
+		// TODO Do basic param checks
+		return false;
+	}
 }

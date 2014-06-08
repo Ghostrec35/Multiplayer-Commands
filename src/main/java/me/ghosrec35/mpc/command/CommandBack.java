@@ -37,4 +37,10 @@ public class CommandBack extends CommandMPCBase
             data.loadNBTData(tag);
         }
     }
+
+	@Override
+	public boolean hasProperParams(String[] params) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -33,4 +33,10 @@ public class CommandDelTab extends CommandMPCBase
             CommandCreativeTab.tabMap.remove(params[0]);
         }
     }
+
+	@Override
+	public boolean hasProperParams(String[] params) {
+		// TODO Do basic param checks
+		return false;
+	}
 }

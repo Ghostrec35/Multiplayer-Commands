@@ -71,4 +71,10 @@ public class CommandDropAll extends CommandMPCBase
             player.addStat(StatList.dropStat, 1);
         }
     }
+
+	@Override
+	public boolean hasProperParams(String[] params) {
+		// TODO Do basic param checks
+		return false;
+	}
 }

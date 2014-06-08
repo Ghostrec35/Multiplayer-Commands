@@ -28,4 +28,10 @@ public class CommandDeathPosition extends CommandMPCBase
             player.setPositionAndUpdate(data.getDeathXCoordinate(), data.getDeathYCoordinate(), data.getDeathZCoordinate());
         }
     }
+
+	@Override
+	public boolean hasProperParams(String[] params) {
+		// TODO Do basic param checks
+		return false;
+	}
 }

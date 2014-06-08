@@ -33,10 +33,22 @@ public class CommandAddItem extends CommandMPCBase
 	            }
 	            tab.addItem(stack);
 	        }
+	        else
+	        {
+	        	sender.addChatMessage(new ChatComponentTranslation("commands.general.lackofperms"));
+	        }
     	}
     	else
     	{
     		sender.addChatMessage(new ChatComponentTranslation(getCommandUsage(sender)));
     	}
     }
+
+	@Override
+	public boolean hasProperParams(String[] params) 
+	{
+		if(params.length != 2)
+			return false;
+		return true;
+	}
 }
