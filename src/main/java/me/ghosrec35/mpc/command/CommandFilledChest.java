@@ -3,7 +3,7 @@ package me.ghosrec35.mpc.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
-public class CommandFilledChest extends CommandBase
+public class CommandFilledChest extends CommandMPCBase
 {
     @Override
     public String getCommandName()
@@ -25,4 +25,11 @@ public class CommandFilledChest extends CommandBase
             
         }
     }
+
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

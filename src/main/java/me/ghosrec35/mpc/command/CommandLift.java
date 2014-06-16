@@ -51,4 +51,11 @@ public class CommandLift extends CommandMPCBase
     {
         return !((b instanceof BlockLiquid) || (b instanceof BlockBush) || (b instanceof BlockTallGrass));
     }
+    
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

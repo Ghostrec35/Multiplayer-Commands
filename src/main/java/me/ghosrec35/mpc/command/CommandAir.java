@@ -37,9 +37,10 @@ public class CommandAir extends CommandMPCBase
 	    }
     }
 
-	@Override
+    @Override
 	public boolean hasProperParams(String[] params) 
-	{
+    {
+		// TODO Do basic param checks
 		return true;
 	}
 }

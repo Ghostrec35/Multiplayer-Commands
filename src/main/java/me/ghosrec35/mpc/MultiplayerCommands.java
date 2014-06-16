@@ -58,13 +58,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MultiplayerCommands.MODID)
+@Mod(modid = MultiplayerCommands.MOD_ID)
 public class MultiplayerCommands
 {
-    @Instance(MultiplayerCommands.MODID)
+    @Instance(MultiplayerCommands.MOD_ID)
     public static MultiplayerCommands instance;
     
-    public static final String MODID = "MultiplayerCommands";
+    public static final String MOD_ID = "MultiplayerCommands";
     
     public static HashMap<String, Class<? extends Entity>> entityMap = new HashMap<String, Class<? extends Entity>>();
     public static Map<String, Enchantment> enchantmentMap = new HashMap<String, Enchantment>();
@@ -96,14 +96,14 @@ public class MultiplayerCommands
     @EventHandler
     public void onPreInit(FMLPreInitializationEvent event)
     {
-        Configuration config = new Configuration(new File(event.getModConfigurationDirectory(), "MCP Configs/" + event.getModMetadata().name + ".cfg"));
+        Configuration config = new Configuration(new File(event.getModConfigurationDirectory(), "MPC Configs/" + event.getModMetadata().name + ".cfg"));
         config.load();
         ConfigurationData.setConfigValues(config);
         config.save();
         
-        manager = new GroupManager(new File(event.getModConfigurationDirectory(), "MCP Configs/UserGroups.cfg"));
+        manager = new GroupManager(new File(event.getModConfigurationDirectory(), "MPC Configs/UserGroups.cfg"));
         
-        File dir = new File(event.getModConfigurationDirectory(), "MCP Configs/user-files");
+        File dir = new File(event.getModConfigurationDirectory(), "MPC Configs/user-files");
         
         if(!dir.isDirectory())
             return;

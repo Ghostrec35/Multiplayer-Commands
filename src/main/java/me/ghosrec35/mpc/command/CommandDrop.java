@@ -52,9 +52,10 @@ public class CommandDrop extends CommandMPCBase
         return !((b instanceof BlockLiquid) || (b instanceof BlockBush) || (b instanceof BlockTallGrass));
     }
 
-	@Override
-	public boolean hasProperParams(String[] params) {
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
 		// TODO Do basic param checks
-		return false;
+		return true;
 	}
 }

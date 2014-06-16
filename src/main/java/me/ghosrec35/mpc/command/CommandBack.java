@@ -38,9 +38,10 @@ public class CommandBack extends CommandMPCBase
         }
     }
 
-	@Override
-	public boolean hasProperParams(String[] params) {
-		// TODO Auto-generated method stub
-		return false;
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
 	}
 }

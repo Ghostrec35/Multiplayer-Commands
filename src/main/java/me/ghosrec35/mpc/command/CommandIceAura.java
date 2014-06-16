@@ -29,4 +29,11 @@ public class CommandIceAura extends CommandMPCBase
             //data.setIceAuraActivated(!data.isIceAuraActivated());
         }
     }
+
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

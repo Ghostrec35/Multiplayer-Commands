@@ -27,4 +27,11 @@ public class CommandGamemode extends CommandMPCBase
         ICommand comm = (ICommand) FMLCommonHandler.instance().getMinecraftServerInstance().getCommandManager().getCommands().get("gamemode");
         comm.processCommand(sender, params);
     }
+
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

@@ -82,4 +82,11 @@ public class CommandMPC extends CommandMPCBase
 					(data.isFallDamageInactive() != true ? "True" : "False")
 				};
 	}
+	
+	@Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

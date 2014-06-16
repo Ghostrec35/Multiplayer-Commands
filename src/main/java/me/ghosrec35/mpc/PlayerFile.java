@@ -40,5 +40,5 @@ public class PlayerFile
     public boolean hasPermission(ICommand command)
     {
         return commands.contains(command);
-    }
+    }  
 }

@@ -30,4 +30,11 @@ public class CommandRepair extends CommandMPCBase
                 stack.setItemDamage(0);
         }
     }
+    
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

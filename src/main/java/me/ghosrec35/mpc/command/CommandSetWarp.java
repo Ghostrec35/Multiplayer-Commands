@@ -66,4 +66,11 @@ public class CommandSetWarp extends CommandMPCBase
         tag.setTag("WarpNames", warpNames);
         saveFile.addData(tag);
     }
+    
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

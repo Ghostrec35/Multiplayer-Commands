@@ -29,4 +29,11 @@ public class CommandHome extends CommandMPCBase
             player.setPositionAndUpdate(data.getHomeXCoordinate(), data.getHomeYCoordinate(), data.getHomeZCoordinate());
         }
     }
+
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

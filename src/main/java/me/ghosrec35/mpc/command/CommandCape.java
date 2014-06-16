@@ -55,9 +55,10 @@ public class CommandCape extends CommandMPCBase
         return new ThreadDownloadImageData(url, null, new CapeImageBuffer());
     }
 
-	@Override
-	public boolean hasProperParams(String[] params) {
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
 		// TODO Do basic param checks
-		return false;
+		return true;
 	}
 }

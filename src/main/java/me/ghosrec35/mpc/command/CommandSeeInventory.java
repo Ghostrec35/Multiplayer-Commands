@@ -36,4 +36,11 @@ public class CommandSeeInventory extends CommandMPCBase
             }
         }
     }
+    
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
+		// TODO Do basic param checks
+		return true;
+	}
 }

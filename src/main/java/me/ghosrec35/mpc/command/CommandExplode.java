@@ -32,9 +32,10 @@ public class CommandExplode extends CommandMPCBase
         }
     }
 
-	@Override
-	public boolean hasProperParams(String[] params) {
+    @Override
+	public boolean hasProperParams(String[] params) 
+    {
 		// TODO Do basic param checks
-		return false;
+		return true;
 	}
 }
