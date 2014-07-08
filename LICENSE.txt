@@ -1,0 +1,9 @@
+This mod is provided as is without any warranty. The source code for this mod is made publicly available on GitHub and is free for anyone to use for the purpose of learning, you may not compile the code of this project and include it within your own project without advanced written permission from myself, you also may not distribute modified copies of the project or parts of the project without my permission. You may not host files related to this project on your site without permission from myself.
+
+Modpacks:If you would like to distribute this mod in a mod pack you may do so as long as the pack meets the three requirements. If the following criteria are met you can publish your pack with out getting a direct pm for me. I have the right to change this in the future however that is not likely to happen. If you need proof of permission for this mod you may screenshot this spoiler.
+
+-The pack is not distributed behind an ad site such as adfly or adfoc and is not being sold or used to generate profit. Packs may sell brand name merchandise such as clothes without breaking this rule (example FTB store)
+
+-The pack site or page includes a public list to all of the mods within the pack as well as credit to the mod authors and links to their respective page(s). (Donations/Twitter/Patreon/Website/Forum page)
+
+-The pack has permission to use every mod contained within the pack.

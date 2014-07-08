@@ -15,6 +15,7 @@ import me.ghosrec35.mpc.command.CommandDelTab;
 import me.ghosrec35.mpc.command.CommandDrop;
 import me.ghosrec35.mpc.command.CommandDropAll;
 import me.ghosrec35.mpc.command.CommandEnchant;
+import me.ghosrec35.mpc.command.CommandFilledChest;
 import me.ghosrec35.mpc.command.CommandFly;
 import me.ghosrec35.mpc.command.CommandGod;
 import me.ghosrec35.mpc.command.CommandHat;
@@ -58,13 +59,15 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MultiplayerCommands.MOD_ID)
+@Mod(modid = MultiplayerCommands.MOD_ID, name = MultiplayerCommands.MOD_NAME, version = MultiplayerCommands.MOD_VERSION)
 public class MultiplayerCommands
 {
     @Instance(MultiplayerCommands.MOD_ID)
     public static MultiplayerCommands instance;
     
     public static final String MOD_ID = "MultiplayerCommands";
+    public static final String MOD_NAME = "Multiplayer Commands";
+    public static final String MOD_VERSION = "0.0.0.1-SNAPSHOT";
     
     public static HashMap<String, Class<? extends Entity>> entityMap = new HashMap<String, Class<? extends Entity>>();
     public static Map<String, Enchantment> enchantmentMap = new HashMap<String, Enchantment>();
@@ -166,6 +169,7 @@ public class MultiplayerCommands
         manager.registerCommand(new CommandInstaMine());
         manager.registerCommand(new CommandItemAttribute());
         manager.registerCommand(new CommandMPC());
+        manager.registerCommand(new CommandFilledChest());
         
         for(ICommand command : ((Map<String, ICommand>)manager.getCommands()).values())
         {
