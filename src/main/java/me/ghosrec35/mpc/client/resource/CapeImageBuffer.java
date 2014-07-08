@@ -19,4 +19,9 @@ public class CapeImageBuffer implements IImageBuffer
         graphics.dispose();
         return cape;
     }
+
+	@Override
+	public void func_152634_a() 
+	{
+	}
 }

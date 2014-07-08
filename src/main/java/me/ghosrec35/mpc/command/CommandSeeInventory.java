@@ -30,7 +30,7 @@ public class CommandSeeInventory extends CommandMPCBase
             {
                 MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
                 EntityPlayer commPlayer = getCommandSenderAsPlayer(sender);
-                EntityPlayer player = server.getConfigurationManager().getPlayerForUsername(params[0]);
+                EntityPlayer player = getPlayer(sender, null);
                 commPlayer.getEntityData().setString("PlayerViewName", params[0]);
                 commPlayer.openGui(MultiplayerCommands.instance, 0, player.worldObj, (int)commPlayer.posX, (int)commPlayer.posY, (int)commPlayer.posZ);
             }

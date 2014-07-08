@@ -52,7 +52,7 @@ public class CommandCape extends CommandMPCBase
 
     private ITextureObject buildTexture(String url)
     {
-        return new ThreadDownloadImageData(url, null, new CapeImageBuffer());
+        return new ThreadDownloadImageData(null, url, null, new CapeImageBuffer());
     }
 
     @Override
