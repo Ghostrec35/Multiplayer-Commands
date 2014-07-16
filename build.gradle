@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.0.0.1-SNAPSHOT"
+version = "0.0.0.2-SNAPSHOT"
 group= "me.ghosrec35.mpc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "MultiplayerCommands-alpha"
+archivesBaseName = "1.7.10-MultiplayerCommands-alpha"
 
 minecraft {
     version = "1.7.10-10.13.0.1171"

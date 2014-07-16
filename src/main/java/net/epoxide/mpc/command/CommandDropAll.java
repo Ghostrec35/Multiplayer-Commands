@@ -2,14 +2,13 @@ package net.epoxide.mpc.command;
 
 import java.util.Random;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import cpw.mods.fml.common.FMLLog;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandDropAll extends CommandMPCBase
 {
@@ -41,24 +40,26 @@ public class CommandDropAll extends CommandMPCBase
             EntityPlayer player = (EntityPlayer)getCommandSenderAsPlayer(sender);
             InventoryPlayer inv = player.inventory;
             double xMot = random.nextFloat() * 0.5f, zMot = random.nextFloat() * 0.5f;
+            int numItemsDropped = 0;
             for(int item = 0; item < inv.mainInventory.length; item++)
             {
-                dropItemIfNecessary(player, inv.mainInventory[item], xMot, zMot);
+                numItemsDropped += dropItemIfNecessary(player, inv.mainInventory[item], xMot, zMot);
                 inv.mainInventory[item] = null;
             }
             for(int item = 0; item < inv.armorInventory.length; item++)
             {
-                dropItemIfNecessary(player, inv.armorInventory[item], xMot, zMot);
+                numItemsDropped += dropItemIfNecessary(player, inv.armorInventory[item], xMot, zMot);
                 inv.armorInventory[item] = null;
             }
+            sender.addChatMessage(new ChatComponentTranslation("commands.dropall.success", numItemsDropped));
         }
     }
 
-    private void dropItemIfNecessary(EntityPlayer player, ItemStack stack, double xMot, double zMot)
+    private int dropItemIfNecessary(EntityPlayer player, ItemStack stack, double xMot, double zMot)
     {
         if(stack == null || stack.stackSize < 1)
         {
-            return;
+            return 0;
         }
         else
         {
@@ -70,6 +71,7 @@ public class CommandDropAll extends CommandMPCBase
             player.joinEntityItemWithWorld(item);
             player.addStat(StatList.dropStat, 1);
         }
+        return stack.stackSize;
     }
 
     @Override

@@ -2,6 +2,7 @@ package net.epoxide.mpc.command;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandExtinguish extends CommandMPCBase
 {
@@ -26,10 +27,12 @@ public class CommandExtinguish extends CommandMPCBase
             {
                 EntityPlayer player = getCommandSenderAsPlayer(sender).worldObj.getPlayerEntityByName(params[0]);
                 player.extinguish();
+                sender.addChatMessage(new ChatComponentTranslation("commands.extinguish.success", params[0]));
             }
             else
             {
                 getCommandSenderAsPlayer(sender).extinguish();
+                sender.addChatMessage(new ChatComponentTranslation("commands.extinguish.success", sender.getCommandSenderName()));
             }
         }
     }

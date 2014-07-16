@@ -5,6 +5,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandSetHome extends CommandMPCBase
 {
@@ -34,6 +35,7 @@ public class CommandSetHome extends CommandMPCBase
             NBTTagCompound compound = new NBTTagCompound();
             compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
             properties.loadNBTData(compound);
+            sender.addChatMessage(new ChatComponentTranslation("commands.sethome.success", player.posX, player.posY, player.posZ));
         }
     }
     

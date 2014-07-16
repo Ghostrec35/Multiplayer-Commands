@@ -7,6 +7,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.StatCollector;
 
 public abstract class CommandMPCBase extends CommandBase
 {	
@@ -55,5 +56,10 @@ public abstract class CommandMPCBase extends CommandBase
     protected List<String> genAliasList(String... strings)
     {
         return Arrays.asList(strings);
+    }
+    
+    protected String translate(String key)
+    {
+        return StatCollector.translateToLocal(key);
     }
 }

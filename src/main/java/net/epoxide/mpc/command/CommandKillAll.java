@@ -3,11 +3,11 @@ package net.epoxide.mpc.command;
 import java.util.List;
 
 import net.epoxide.mpc.MultiplayerCommands;
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 
 public class CommandKillAll extends CommandMPCBase
@@ -38,22 +38,32 @@ public class CommandKillAll extends CommandMPCBase
             World world = (World)(getCommandSenderAsPlayer(sender).worldObj);
             if(params.length > 0)
             {
+                int numKilled = 0;
                 Class<? extends Entity> type = MultiplayerCommands.entityMap.get(params[0]);
                 for(Entity entity : (List<Entity>)world.loadedEntityList)
                 {
                     if(entity.getClass() == type)
+                    {
                         entity.setDead();
+                        numKilled++;
+                    }
                 }
+                
+                sender.addChatMessage(new ChatComponentTranslation("commands.killall.success", numKilled));
             }
             else
             {
+                int numKilled = 0;
                 for(Entity entity : (List<Entity>)world.loadedEntityList)
                 {
                     if(entity instanceof EntityLiving && !(entity instanceof EntityPlayer))
                     {
                         entity.setDead();
+                        numKilled++;
                     }
                 }   
+                
+                sender.addChatMessage(new ChatComponentTranslation("commands.killall.success", numKilled));
             }
         }
     }

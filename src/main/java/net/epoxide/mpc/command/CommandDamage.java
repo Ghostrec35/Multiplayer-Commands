@@ -1,9 +1,9 @@
 package net.epoxide.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandDamage extends CommandMPCBase
 {
@@ -30,6 +30,7 @@ public class CommandDamage extends CommandMPCBase
             {
                 int damage = Integer.parseInt(params[0]);
                 stack.setItemDamage(damage);
+                sender.addChatMessage(new ChatComponentTranslation("commands.damage.success", damage, stack.getDisplayName()));
             }
         }
     }

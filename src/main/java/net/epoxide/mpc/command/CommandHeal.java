@@ -1,9 +1,8 @@
 package net.epoxide.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandHeal extends CommandMPCBase
 {
@@ -28,10 +27,12 @@ public class CommandHeal extends CommandMPCBase
             if(params.length == 1)
             {
                 player.setHealth(player.getHealth() + Float.parseFloat(params[0]));
+                sender.addChatMessage(new ChatComponentTranslation("commands.heal.success", params[0]));
             }
             else
             {
                 player.setHealth(player.getMaxHealth());
+                sender.addChatMessage(new ChatComponentTranslation("commands.heal.success", String.valueOf(player.getMaxHealth())));
             }
         }
     }

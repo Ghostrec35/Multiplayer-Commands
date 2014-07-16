@@ -4,6 +4,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandSmelt extends CommandMPCBase
 {
@@ -26,11 +27,19 @@ public class CommandSmelt extends CommandMPCBase
         {
             EntityPlayer player = getCommandSenderAsPlayer(sender);
             ItemStack stackInHand = player.inventory.getStackInSlot(player.inventory.currentItem);
-            ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(stackInHand);
-            if(result != null)
+            if(stackInHand != null)
             {
-                result.stackSize = stackInHand.stackSize;
-                player.inventory.mainInventory[player.inventory.currentItem] = result;
+                ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(stackInHand);
+                if(result != null)
+                {
+                    result.stackSize = stackInHand.stackSize;
+                    player.inventory.mainInventory[player.inventory.currentItem] = result;
+                    sender.addChatMessage(new ChatComponentTranslation("commands.smelt.success", stackInHand.getDisplayName(), result.getDisplayName()));
+                }
+            }
+            else
+            {
+                sender.addChatMessage(new ChatComponentTranslation("commands.smelt.noiteminhand"));
             }
         }
     }

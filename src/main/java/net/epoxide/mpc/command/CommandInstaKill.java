@@ -6,6 +6,7 @@ import net.epoxide.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.WorldServer;
 import cpw.mods.fml.common.FMLCommonHandler;
 
@@ -52,6 +53,7 @@ public class CommandInstaKill extends CommandMPCBase
                     NBTTagCompound compound = new NBTTagCompound();
                     compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                     properties.loadNBTData(compound);
+                    sender.addChatMessage(new ChatComponentTranslation("commands.instakill.success", properties.isInstaKillActive() ? translate("commands.enabled") : translate("commands.disabled")));
                 }
             }
             else
@@ -63,6 +65,7 @@ public class CommandInstaKill extends CommandMPCBase
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                 properties.loadNBTData(compound);
+                sender.addChatMessage(new ChatComponentTranslation("commands.instakill.success", properties.isInstaKillActive() ? translate("commands.enabled") : translate("commands.disabled")));
             }
         }
     }

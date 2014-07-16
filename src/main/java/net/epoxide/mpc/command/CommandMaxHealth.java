@@ -1,9 +1,9 @@
 package net.epoxide.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandMaxHealth extends CommandMPCBase
 {
@@ -29,10 +29,13 @@ public class CommandMaxHealth extends CommandMPCBase
             {
                 int value = Integer.parseInt(params[0]);
                 player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(value);
+                sender.addChatMessage(new ChatComponentTranslation("commands.maxhealth.success", value));
             }
             catch(Exception e)
             {
                 player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
+                sender.addChatMessage(new ChatComponentTranslation("commands.maxhealth.success", 20));
+
             }
         }
     }

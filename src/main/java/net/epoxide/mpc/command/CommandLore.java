@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 
@@ -82,6 +83,8 @@ public class CommandLore extends CommandMPCBase
                 NBTTagString strTag = new NBTTagString(style.getFormattingCode() + desc.toString());
                 list.appendTag(strTag);
                 stack.stackTagCompound.getCompoundTag("display").setTag("Lore", list);
+
+                sender.addChatMessage(new ChatComponentTranslation("commands.lore.success", stack.getDisplayName()));
             }
         }
     }

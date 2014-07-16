@@ -7,6 +7,7 @@ import net.epoxide.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.WorldServer;
 
 public class CommandInstaMine extends CommandMPCBase
@@ -52,6 +53,7 @@ public class CommandInstaMine extends CommandMPCBase
                     NBTTagCompound compound = new NBTTagCompound();
                     compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                     properties.loadNBTData(compound);
+                    sender.addChatMessage(new ChatComponentTranslation("commands.instamine.success", properties.isInstaMineActive() ? translate("commands.enabled") : translate("commands.disabled")));
                 }
             }
             else
@@ -63,6 +65,7 @@ public class CommandInstaMine extends CommandMPCBase
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                 properties.loadNBTData(compound);
+                sender.addChatMessage(new ChatComponentTranslation("commands.instamine.success", properties.isInstaMineActive() ? translate("commands.enabled") : translate("commands.disabled")));
             }
         }
     }

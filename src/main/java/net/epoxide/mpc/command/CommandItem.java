@@ -6,6 +6,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandItem extends CommandMPCBase
 {
@@ -51,9 +52,13 @@ public class CommandItem extends CommandMPCBase
                 {
                     int stackSize = Integer.parseInt(params[1]);
                     item.stackSize = stackSize;
+                    sender.addChatMessage(new ChatComponentTranslation("commands.item.success", stackSize, item.getDisplayName()));
                 }
                 catch(Exception e)
-                {}
+                {
+                    sender.addChatMessage(new ChatComponentTranslation(getCommandUsage(sender)));
+                    return;
+                }
                 
                 player.inventory.addItemStackToInventory(item);
             }

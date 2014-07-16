@@ -1,12 +1,12 @@
 package net.epoxide.mpc.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 
@@ -83,6 +83,7 @@ public class CommandRename extends CommandMPCBase
                         stack.setTagCompound(new NBTTagCompound());
                     
                     stack.setStackDisplayName(style.getFormattingCode() + name.toString());
+                    sender.addChatMessage(new ChatComponentTranslation("commands.rename.success", stack.getDisplayName()));
                 }
             }
         }

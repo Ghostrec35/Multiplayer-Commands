@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandEnchant extends CommandMPCBase
 {   
@@ -48,10 +49,13 @@ public class CommandEnchant extends CommandMPCBase
                     }  
                     
                     if(enchant != null)
+                    {
                         stack.addEnchantment(enchant, level);
-                    
+                        sender.addChatMessage(new ChatComponentTranslation("commands.enchant.success", "added", stack.getDisplayName(), enchant.getName()));
+                    }
                     stack.getEnchantmentTagList();
                 }
+                
             }
             else
             if(params[0].equalsIgnoreCase("r") || params[0].equalsIgnoreCase("remove"))
@@ -73,6 +77,8 @@ public class CommandEnchant extends CommandMPCBase
                         }
                     }
                     stack.setTagCompound(nbtTag);
+                    
+                    sender.addChatMessage(new ChatComponentTranslation("commands.enchant.success", "removed", stack.getDisplayName(), Enchantment.enchantmentsList[id].getName()));
                 }
             }
         }

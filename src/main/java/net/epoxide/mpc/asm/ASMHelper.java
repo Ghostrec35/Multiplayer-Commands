@@ -262,6 +262,7 @@ public class ASMHelper
 
     /**
      * Injects a hook into the class bytes using the given information
+     * Invoked by {@link MPCClassTransformer#transform(String, String, byte[])}
      * 
      * @param originalClassBytes
      *            The byte array representation of the class being transformed.

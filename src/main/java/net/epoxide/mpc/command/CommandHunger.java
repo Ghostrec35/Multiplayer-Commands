@@ -3,6 +3,7 @@ package net.epoxide.mpc.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandHunger extends CommandMPCBase
 {
@@ -27,10 +28,12 @@ public class CommandHunger extends CommandMPCBase
             if(params.length == 1)
             {
                 player.getFoodStats().setFoodLevel(Integer.parseInt(params[0]));
+                sender.addChatMessage(new ChatComponentTranslation("commands.hunger.success", params[0]));
             }
             else
             {
                 player.getFoodStats().setFoodLevel(20);
+                sender.addChatMessage(new ChatComponentTranslation("commands.hunger.success", String.valueOf(20)));
             }
         }
     }

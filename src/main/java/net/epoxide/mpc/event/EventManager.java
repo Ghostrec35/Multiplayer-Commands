@@ -85,8 +85,9 @@ public class EventManager
             if(data.isInstaMineActive())
             {
                 Block block = event.entityPlayer.worldObj.getBlock(event.x, event.y, event.z);
+                int meta = event.entityPlayer.worldObj.getBlockMetadata(event.x, event.y, event.z);
                 event.entityPlayer.worldObj.setBlockToAir(event.x, event.y, event.z);
-                ItemStack stack = new ItemStack(block.getItemDropped(0, rand, 0));
+                ItemStack stack = new ItemStack(block, 1, meta);
                 EntityItem item = new EntityItem(event.entityPlayer.worldObj, event.x, event.y, event.z, stack);
                 event.entityPlayer.worldObj.spawnEntityInWorld(item);
             }

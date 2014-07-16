@@ -4,6 +4,7 @@ import net.epoxide.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandBack extends CommandMPCBase
 {
@@ -35,6 +36,7 @@ public class CommandBack extends CommandMPCBase
             innerTag.setDouble("LastPositionZ", player.posZ);
             tag.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, innerTag);
             data.loadNBTData(tag);
+            sender.addChatMessage(new ChatComponentTranslation("commands.back.success", player.posX, player.posY, player.posZ));
         }
     }
 

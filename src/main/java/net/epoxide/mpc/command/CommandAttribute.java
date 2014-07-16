@@ -7,6 +7,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandAttribute extends CommandMPCBase
 {
@@ -43,6 +44,7 @@ public class CommandAttribute extends CommandMPCBase
             if(attribute != null)
             {
                 player.getAttributeMap().registerAttribute(attribute).setBaseValue(Double.parseDouble(params[1]));
+                sender.addChatMessage(new ChatComponentTranslation("commands.attribute.success", translate(attribute.getAttributeUnlocalizedName()), params[1], player.getDisplayName()));
             }
         }
     }

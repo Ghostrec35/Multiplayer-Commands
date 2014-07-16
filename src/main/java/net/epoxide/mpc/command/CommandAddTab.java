@@ -1,6 +1,6 @@
 package net.epoxide.mpc.command;
 
-import net.epoxide.mpc.creativetab.CommandCreativeTab;
+import net.epoxide.mpc.creativetab.CreativeTabCommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -30,7 +30,8 @@ public class CommandAddTab extends CommandMPCBase
 	            {
 	                stack = new ItemStack((Item)Item.itemRegistry.getObject(params[1].toLowerCase()));
 	            }
-	            CommandCreativeTab.dynamicallyGenerateTab(params[0], stack);
+	            CreativeTabCommand.dynamicallyGenerateTab(params[0], stack);
+	            sender.addChatMessage(new ChatComponentTranslation("commands.addtab.success", params[0], stack.getDisplayName()));
         	}
         	else	
         	{

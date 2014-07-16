@@ -4,6 +4,7 @@ import net.epoxide.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandHome extends CommandMPCBase
 {
@@ -27,6 +28,7 @@ public class CommandHome extends CommandMPCBase
             EntityPlayer player = (EntityPlayer)getCommandSenderAsPlayer(sender);
             ExtendedPlayerData data = (ExtendedPlayerData) player.getExtendedProperties(ExtendedPlayerData.EXTENDED_PROPS_IDENT);
             player.setPositionAndUpdate(data.getHomeXCoordinate(), data.getHomeYCoordinate(), data.getHomeZCoordinate());
+            sender.addChatMessage(new ChatComponentTranslation("commands.home.success", data.getHomeXCoordinate(), data.getHomeYCoordinate(), data.getHomeZCoordinate()));
         }
     }
 

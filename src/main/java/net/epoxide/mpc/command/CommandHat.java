@@ -2,12 +2,13 @@ package net.epoxide.mpc.command;
 
 import java.util.List;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.WorldServer;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class CommandHat extends CommandMPCBase
 {
@@ -57,6 +58,7 @@ public class CommandHat extends CommandMPCBase
                 {
                     entityPlayer.inventory.armorInventory[entityPlayer.inventory.armorInventory.length - 1] = stack;
                 }
+                sender.addChatMessage(new ChatComponentTranslation("commands.hat.success", entityPlayer.inventory.armorInventory[entityPlayer.inventory.armorInventory.length - 1].getDisplayName()));
             }
             else
             {
@@ -64,6 +66,7 @@ public class CommandHat extends CommandMPCBase
                 ItemStack temp = player.inventory.armorInventory[player.inventory.armorInventory.length - 1];
                 player.inventory.armorInventory[player.inventory.armorInventory.length - 1] = player.getCurrentEquippedItem();
                 player.inventory.mainInventory[player.inventory.currentItem] = temp;
+                sender.addChatMessage(new ChatComponentTranslation("commands.hat.success", player.inventory.armorInventory[player.inventory.armorInventory.length - 1].getDisplayName(), player.getDisplayName()));
             }
         }
     }

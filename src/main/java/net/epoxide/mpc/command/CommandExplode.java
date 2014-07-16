@@ -1,8 +1,8 @@
 package net.epoxide.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandExplode extends CommandMPCBase
 {
@@ -28,6 +28,7 @@ public class CommandExplode extends CommandMPCBase
             {
                 EntityPlayer target = commandUser.worldObj.getPlayerEntityByName(params[0]);
                 target.worldObj.createExplosion(target, target.posX, target.posY, target.posZ, 4.0f, true);
+                sender.addChatMessage(new ChatComponentTranslation("commands.explode.success", target.posX, target.posY, target.posZ));
             }
         }
     }

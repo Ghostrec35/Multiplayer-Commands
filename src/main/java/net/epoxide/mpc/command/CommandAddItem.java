@@ -1,10 +1,12 @@
 package net.epoxide.mpc.command;
 
-import net.epoxide.mpc.creativetab.CommandCreativeTab;
+import net.epoxide.mpc.creativetab.CreativeTabCommand;
+import net.minecraft.block.Block;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.StatCollector;
 
 public class CommandAddItem extends CommandMPCBase
 {
@@ -21,7 +23,7 @@ public class CommandAddItem extends CommandMPCBase
     	{
 	        if(canCommandSenderUseCommand(sender))
 	        {
-	            CommandCreativeTab tab = CommandCreativeTab.tabMap.get(params[0]);
+	            CreativeTabCommand tab = CreativeTabCommand.tabMap.get(params[0]);
 	            ItemStack stack;
 	            try
 	            {
@@ -30,8 +32,13 @@ public class CommandAddItem extends CommandMPCBase
 	            catch(Exception e)
 	            {
 	                stack = new ItemStack((Item)Item.itemRegistry.getObject(params[1].toLowerCase()));
+	                if(stack.getItem() == null)
+	                {
+	                    stack = new ItemStack(Item.getItemFromBlock((Block)Block.blockRegistry.getObject(params[1].toLowerCase())));
+	                }
 	            }
 	            tab.addItem(stack);
+	            sender.addChatMessage(new ChatComponentTranslation("commands.additem.success", translate(stack.getDisplayName()), params[0]));
 	        }
 	        else
 	        {

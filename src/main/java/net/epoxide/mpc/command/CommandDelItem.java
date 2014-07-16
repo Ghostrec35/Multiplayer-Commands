@@ -1,9 +1,10 @@
 package net.epoxide.mpc.command;
 
-import net.epoxide.mpc.creativetab.CommandCreativeTab;
+import net.epoxide.mpc.creativetab.CreativeTabCommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandDelItem extends CommandMPCBase
 {
@@ -26,7 +27,7 @@ public class CommandDelItem extends CommandMPCBase
         {
             if(params.length == 2)
             {
-                CommandCreativeTab tab = CommandCreativeTab.tabMap.get(params[0]);
+                CreativeTabCommand tab = CreativeTabCommand.tabMap.get(params[0]);
                 ItemStack stack;
                 try
                 {
@@ -37,6 +38,7 @@ public class CommandDelItem extends CommandMPCBase
                     stack = new ItemStack((Item)Item.itemRegistry.getObject(params[1].toLowerCase()));
                 }
                 tab.removeItem(stack);
+                sender.addChatMessage(new ChatComponentTranslation("commands.delitem.success", stack.getDisplayName(), params[0]));
             }
         }
     }

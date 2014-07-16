@@ -7,6 +7,7 @@ import java.util.Map;
 
 import net.epoxide.mpc.command.CommandAddItem;
 import net.epoxide.mpc.command.CommandAddTab;
+import net.epoxide.mpc.command.CommandBack;
 import net.epoxide.mpc.command.CommandBroadcast;
 import net.epoxide.mpc.command.CommandCraft;
 import net.epoxide.mpc.command.CommandDamage;
@@ -15,7 +16,6 @@ import net.epoxide.mpc.command.CommandDelTab;
 import net.epoxide.mpc.command.CommandDrop;
 import net.epoxide.mpc.command.CommandDropAll;
 import net.epoxide.mpc.command.CommandEnchant;
-import net.epoxide.mpc.command.CommandFilledChest;
 import net.epoxide.mpc.command.CommandFly;
 import net.epoxide.mpc.command.CommandGod;
 import net.epoxide.mpc.command.CommandHat;
@@ -39,9 +39,11 @@ import net.epoxide.mpc.command.CommandSetHome;
 import net.epoxide.mpc.command.CommandSmelt;
 import net.epoxide.mpc.command.CommandSpawner;
 import net.epoxide.mpc.command.CommandSpeed;
+import net.epoxide.mpc.command.CommandTransferToDimension;
 import net.epoxide.mpc.event.EventManager;
 import net.epoxide.mpc.nbt.MPCWorldDataManager;
 import net.epoxide.mpc.ref.ConfigurationData;
+import net.epoxide.mpc.ref.Reference;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.enchantment.Enchantment;
@@ -59,15 +61,11 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MultiplayerCommands.MOD_ID, name = MultiplayerCommands.MOD_NAME, version = MultiplayerCommands.MOD_VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class MultiplayerCommands
 {
-    @Instance(MultiplayerCommands.MOD_ID)
-    public static MultiplayerCommands instance;
-    
-    public static final String MOD_ID = "MultiplayerCommands";
-    public static final String MOD_NAME = "Multiplayer Commands";
-    public static final String MOD_VERSION = "0.0.0.1-SNAPSHOT";
+    @Instance(Reference.MOD_ID)
+    public static MultiplayerCommands instance;   
     
     public static HashMap<String, Class<? extends Entity>> entityMap = new HashMap<String, Class<? extends Entity>>();
     public static Map<String, Enchantment> enchantmentMap = new HashMap<String, Enchantment>();
@@ -169,7 +167,8 @@ public class MultiplayerCommands
         manager.registerCommand(new CommandInstaMine());
         manager.registerCommand(new CommandItemAttribute());
         manager.registerCommand(new CommandMPC());
-        manager.registerCommand(new CommandFilledChest());
+        manager.registerCommand(new CommandBack());
+        manager.registerCommand(new CommandTransferToDimension());
         
         for(ICommand command : ((Map<String, ICommand>)manager.getCommands()).values())
         {

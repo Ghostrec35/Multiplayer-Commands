@@ -1,8 +1,8 @@
 package net.epoxide.mpc.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandGod extends CommandMPCBase
 {
@@ -27,6 +27,15 @@ public class CommandGod extends CommandMPCBase
             boolean godMode = player.capabilities.disableDamage;
             player.capabilities.disableDamage = !godMode;
             player.sendPlayerAbilities();
+            
+            if(player.capabilities.disableDamage)
+            {
+                sender.addChatMessage(new ChatComponentTranslation("commands.god.success", translate("commands.enabled")));
+            }
+            else
+            {
+                sender.addChatMessage(new ChatComponentTranslation("commands.god.success", translate("commands.disabled")));
+            }
         }
     }
 

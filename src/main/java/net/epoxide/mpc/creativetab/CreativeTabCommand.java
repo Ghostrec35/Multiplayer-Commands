@@ -13,14 +13,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class CommandCreativeTab extends CreativeTabs
+public class CreativeTabCommand extends CreativeTabs
 {
-    public static Map<String, CommandCreativeTab> tabMap = new HashMap<String, CommandCreativeTab>();
+    public static Map<String, CreativeTabCommand> tabMap = new HashMap<String, CreativeTabCommand>();
     
     private Item item;
     private List<ItemStack> items = new ArrayList<ItemStack>();
 
-    public CommandCreativeTab(String label, Item i)
+    public CreativeTabCommand(String label, Item i)
     {
         super(label);
         item = i;
@@ -62,6 +62,6 @@ public class CommandCreativeTab extends CreativeTabs
     
     public static void dynamicallyGenerateTab(String label, ItemStack i)
     {
-        CommandCreativeTab.tabMap.put(label, new CommandCreativeTab(label, i.getItem()));
+        CreativeTabCommand.tabMap.put(label, new CreativeTabCommand(label, i.getItem()));
     }
 }

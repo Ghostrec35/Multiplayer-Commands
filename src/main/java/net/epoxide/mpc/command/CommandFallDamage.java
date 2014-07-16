@@ -2,12 +2,13 @@ package net.epoxide.mpc.command;
 
 import java.util.List;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.epoxide.mpc.nbt.ExtendedPlayerData;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.WorldServer;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class CommandFallDamage extends CommandMPCBase
 {
@@ -52,6 +53,7 @@ public class CommandFallDamage extends CommandMPCBase
                     NBTTagCompound compound = new NBTTagCompound();
                     compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                     properties.loadNBTData(compound);
+                    sender.addChatMessage(new ChatComponentTranslation("commands.falldamage.success", (properties.isInstaKillActive() ? translate("commands.enabled") : translate("commands.disabled"))));
                 }
             }
             else
@@ -63,6 +65,7 @@ public class CommandFallDamage extends CommandMPCBase
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setTag(ExtendedPlayerData.EXTENDED_PROPS_IDENT, tag);
                 properties.loadNBTData(compound);
+                sender.addChatMessage(new ChatComponentTranslation("commands.falldamage.success", (properties.isInstaKillActive() ? translate("commands.enabled") : translate("commands.disabled"))));
             }
         }
     }
