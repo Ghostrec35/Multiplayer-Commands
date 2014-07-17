@@ -1,4 +1,4 @@
-package net.epoxide.mpc.ref;
+package net.epoxide.mpc.util;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package net.epoxide.mpc;
+package net.epoxide.mpc.permission;
 
 import java.io.File;
 import java.io.FileNotFoundException;

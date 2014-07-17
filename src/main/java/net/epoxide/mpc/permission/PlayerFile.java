@@ -1,12 +1,11 @@
-package net.epoxide.mpc;
+package net.epoxide.mpc.permission;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import net.epoxide.mpc.registry.CommandRegistry;
 import net.minecraft.command.ICommand;
 
 public class PlayerFile
@@ -26,8 +25,8 @@ public class PlayerFile
             while(scanner.hasNext())
             {
                 String str = scanner.next();
-                if(MultiplayerCommands.commandMap.containsKey(str))
-                    commands.add(MultiplayerCommands.commandMap.get(str));
+                if(CommandRegistry.commandMap.containsKey(str))
+                    commands.add(CommandRegistry.commandMap.get(str));
             }
             scanner.close();
         }

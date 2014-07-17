@@ -1,7 +1,6 @@
 package net.epoxide.mpc.command;
 
-import net.epoxide.mpc.MultiplayerCommands;
-import net.minecraft.command.CommandBase;
+import net.epoxide.mpc.ref.DataRegistry;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,7 +43,7 @@ public class CommandEnchant extends CommandMPCBase
                     }
                     catch(Exception e)
                     {
-                        enchant = MultiplayerCommands.enchantmentMap.get(params[1].toLowerCase());
+                        enchant = DataRegistry.enchantmentMap.get(params[1].toLowerCase());
                         level = Integer.parseInt(params[2]);
                     }  
                     

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import net.epoxide.mpc.nbt.ExtendedPlayerData;
-import net.epoxide.mpc.ref.MPCReflectionHelper;
+import net.epoxide.mpc.util.MPCReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

@@ -42,8 +42,12 @@ import net.epoxide.mpc.command.CommandSpeed;
 import net.epoxide.mpc.command.CommandTransferToDimension;
 import net.epoxide.mpc.event.EventManager;
 import net.epoxide.mpc.nbt.MPCWorldDataManager;
+import net.epoxide.mpc.permission.GroupManager;
+import net.epoxide.mpc.permission.PlayerFile;
 import net.epoxide.mpc.ref.ConfigurationData;
+import net.epoxide.mpc.ref.DataRegistry;
 import net.epoxide.mpc.ref.Reference;
+import net.epoxide.mpc.registry.CommandRegistry;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.enchantment.Enchantment;
@@ -67,26 +71,9 @@ public class MultiplayerCommands
     @Instance(Reference.MOD_ID)
     public static MultiplayerCommands instance;   
     
-    public static HashMap<String, Class<? extends Entity>> entityMap = new HashMap<String, Class<? extends Entity>>();
-    public static Map<String, Enchantment> enchantmentMap = new HashMap<String, Enchantment>();
-    public static Map<String, ICommand> commandMap = new HashMap<String, ICommand>();
+
     
-    static
-    {
-        for(Class<? extends Entity> entityClass : ((Map<String, Class<? extends Entity>>) EntityList.stringToClassMapping).values())
-        {
-            entityMap.put(genEntityCommandKey(entityClass.getName()), entityClass);
-        }
-        for(Enchantment enchant : Enchantment.enchantmentsList)
-        {
-            if(enchant != null)
-                enchantmentMap.put(enchant.getName().toLowerCase(), enchant);
-        }
-        List<ModContainer> modList = Loader.instance().getActiveModList();
-        for(ModContainer mod : modList)
-        {
-        }
-    }
+
     
     public MPCWorldDataManager dataManager;
     public boolean usesGroupFile;
@@ -97,6 +84,8 @@ public class MultiplayerCommands
     @EventHandler
     public void onPreInit(FMLPreInitializationEvent event)
     {
+        DataRegistry.initialize();
+        
         Configuration config = new Configuration(new File(event.getModConfigurationDirectory(), "MPC Configs/" + event.getModMetadata().name + ".cfg"));
         config.load();
         ConfigurationData.setConfigValues(config);
@@ -132,59 +121,7 @@ public class MultiplayerCommands
     @EventHandler
     public void onServerStarting(FMLServerStartingEvent event)
     {        
-        dataManager = new MPCWorldDataManager(event.getServer().getWorldName(), "mpc_data.dat");   
-        
-        ServerCommandManager manager = (ServerCommandManager)event.getServer().getCommandManager();
-        manager.registerCommand(new CommandKillAll());
-        manager.registerCommand(new CommandDropAll());
-        manager.registerCommand(new CommandEnchant());
-        manager.registerCommand(new CommandRename());
-        manager.registerCommand(new CommandLore());
-        manager.registerCommand(new CommandRepair());
-        manager.registerCommand(new CommandDamage());
-        manager.registerCommand(new CommandLift());
-        manager.registerCommand(new CommandDrop());
-        manager.registerCommand(new CommandHeal());
-        manager.registerCommand(new CommandHunger());
-        manager.registerCommand(new CommandSetHome());
-        manager.registerCommand(new CommandHome());
-        manager.registerCommand(new CommandSeeInventory());
-        manager.registerCommand(new CommandSpawner());
-        manager.registerCommand(new CommandGod());
-        manager.registerCommand(new CommandFly());
-        manager.registerCommand(new CommandMaxHealth());
-        manager.registerCommand(new CommandSpeed());
-        manager.registerCommand(new CommandBroadcast());
-        manager.registerCommand(new CommandAddTab());
-        manager.registerCommand(new CommandDelTab());
-        manager.registerCommand(new CommandAddItem());
-        manager.registerCommand(new CommandDelItem());
-        manager.registerCommand(new CommandItem());
-        manager.registerCommand(new CommandSmelt());
-        manager.registerCommand(new CommandInstaKill());
-        manager.registerCommand(new CommandCraft());
-        manager.registerCommand(new CommandHat());
-        manager.registerCommand(new CommandInstaMine());
-        manager.registerCommand(new CommandItemAttribute());
-        manager.registerCommand(new CommandMPC());
-        manager.registerCommand(new CommandBack());
-        manager.registerCommand(new CommandTransferToDimension());
-        
-        for(ICommand command : ((Map<String, ICommand>)manager.getCommands()).values())
-        {
-            if(command instanceof CommandMPCBase)
-            {
-                String commandKey = "mpc." + command.getCommandName();
-                commandMap.put(commandKey, command);
-            }
-        }
-    }
-    
-    private static String genEntityCommandKey(String className)
-    {
-        String[] entityNameParts = className.toLowerCase().split("\\.");
-        String entityName = entityNameParts[entityNameParts.length - 1].replaceAll("entity", "");
-        System.out.println(entityName);
-        return entityName;
+        dataManager = new MPCWorldDataManager(event.getServer().getWorldName(), "mpc_data.dat");
+        CommandRegistry.initialize(event);
     }
 }

@@ -2,7 +2,7 @@ package net.epoxide.mpc.command;
 
 import java.util.List;
 
-import net.epoxide.mpc.MultiplayerCommands;
+import net.epoxide.mpc.ref.DataRegistry;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -39,7 +39,7 @@ public class CommandKillAll extends CommandMPCBase
             if(params.length > 0)
             {
                 int numKilled = 0;
-                Class<? extends Entity> type = MultiplayerCommands.entityMap.get(params[0]);
+                Class<? extends Entity> type = DataRegistry.entityMap.get(params[0]);
                 for(Entity entity : (List<Entity>)world.loadedEntityList)
                 {
                     if(entity.getClass() == type)

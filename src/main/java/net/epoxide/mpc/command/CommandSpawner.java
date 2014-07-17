@@ -2,10 +2,9 @@ package net.epoxide.mpc.command;
 
 import java.lang.reflect.Constructor;
 
-import net.epoxide.mpc.MultiplayerCommands;
+import net.epoxide.mpc.ref.DataRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMobSpawner;
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -53,7 +52,7 @@ public class CommandSpawner extends CommandMPCBase
                         Block block = world.getBlock((int)targetX, (int)targetY, (int)targetZ);
                         if(block != null && block instanceof BlockMobSpawner)
                         {
-                            Class<? extends Entity> entity = MultiplayerCommands.entityMap.get(params[0]);
+                            Class<? extends Entity> entity = DataRegistry.entityMap.get(params[0]);
                             Constructor<?> cons;
                             try
                             {
