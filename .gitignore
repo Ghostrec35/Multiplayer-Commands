@@ -4,7 +4,7 @@ build
 eclipse
 .classpath
 CREDITS-fml.txt
-forge-1.7.10-10.13.0.1171-changelog.txt
+forge-*-changelog.txt
 LICENSE-fml.txt
 MinecraftForge-Credits.txt
 MinecraftForge-License.txt

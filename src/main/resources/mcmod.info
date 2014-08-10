@@ -1,14 +1,14 @@
 [
 {
-  "modid": "MultiplayerCommands",
+  "modid": "multiplayer_commands",
   "name": "Multiplayer Commands",
-  "description": "A possible replacement for defunct SPC",
-  "version": "0.0.0.2",
-  "mcversion": "1.7.10",
+  "description": "An extensive command mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authors": ["Ghosrec35"],
-  "credits": "Darkhax for the idea. (So Far)",
+  "authorList": ["Ghostrec35", "Darkhax"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
